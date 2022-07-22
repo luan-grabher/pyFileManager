@@ -47,8 +47,9 @@ def textHasStringFilter(text, filter):
     #Split one time the filter into has and hasnot by the #
     split = filter.split("#", 1)
     
+    #Has words is the first part of the split, and hasnot words is the second part of the split or empty array if there is no #
     hasWords = split[0].split(";")
-    hasNotWords = split[1].split(";")
+    hasNotWords = split[1].split(";") if len(split) > 1 else []
         
     return textHasFilter(text, hasWords, hasNotWords)
 
