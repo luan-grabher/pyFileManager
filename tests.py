@@ -2,7 +2,7 @@ from fileManager.fileManager import *
 
 
 filters = [
-    "has this;and that#not those",
+    "has this;and that# not those",
     "has this",
     "has that",
     "has those"
