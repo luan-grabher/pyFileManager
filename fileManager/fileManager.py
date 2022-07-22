@@ -26,6 +26,10 @@ def textHasAnyWords(text, words):
     Returns: True if the text had the filter, False if not
 '''
 def textHasFilter(text, hasWords, hasNotWords):
+    #Remove all empty words
+    hasWords = [word for word in hasWords if len(word) > 0]
+    hasNotWords = [word for word in hasNotWords if len(word) > 0]
+
     if textHasAllWords(text, hasWords):
         if textHasAnyWords(text, hasNotWords):
             return False
@@ -50,10 +54,6 @@ def textHasStringFilter(text, filter):
     #Has words is the first part of the split, and hasnot words is the second part of the split or empty array if there is no #
     hasWords = split[0].split(";")
     hasNotWords = split[1].split(";") if len(split) > 1 else []
-
-    #Remove all empty words
-    hasWords = [word for word in hasWords if len(word) > 0]
-    hasNotWords = [word for word in hasNotWords if len(word) > 0]
         
     return textHasFilter(text, hasWords, hasNotWords)
 
