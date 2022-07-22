@@ -41,8 +41,11 @@ def textHasFilter(text, hasWords, hasNotWords):
     Returns: True if the text had the filter, False if not
 '''
 def textHasStringFilter(text, filter):
-    #Split the filter into has and hasnot by the #
-    split = filter.split("#")
+    #replace all spaces with ; to make it easier to split
+    filter = filter.replace(" ", ";")
+
+    #Split one time the filter into has and hasnot by the #
+    split = filter.split("#", 1)
     
     hasWords = split[0].split(";")
     hasNotWords = split[1].split(";")
