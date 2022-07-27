@@ -90,4 +90,7 @@ def findFiles(directory, filter, limiter=-1):
 
 #Find file in the directory that match the filter
 def findFile(directory, filter):
-    return findFiles(directory, filter, 1)[0]
+    fileArray = findFiles(directory, filter, 1)
+    if len(fileArray) > 0:
+        return fileArray[0]
+    return None
